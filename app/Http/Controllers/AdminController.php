@@ -20,9 +20,9 @@ class AdminController extends Controller
     }
 
     public function index(){
-        $files = Camp::orderBy('created_at','DESC')->paginate(30);
+        $camps = Camp::orderBy('created_at','DESC')->paginate(30);
 
-                        return view ('file.index',['files'=> $files]);
+                        return view ('file.index',['camps'=> $camps]);
         
         }
         public function create(){

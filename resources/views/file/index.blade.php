@@ -29,34 +29,34 @@
 
     <div class="row">
         
-        @foreach($files as $file)
-                @if($file->status == "ready")
+        @foreach($camps as $camp)
+                @if($camp->status == "ready")
         
                 <div class="col-sm-5">
                     
                     <div class="card">
 
-                        <img class="card-img-top" src="{{Storage::url($file->path)}}" style= "height: 5cm">
+                        <img class="card-img-top" src="{{Storage::url($camp->path)}}" style= "height: 5cm">
                         <div class ="card-body">
                                 <div style="text-align: right">
 
                             
-                          العنوان :  <strong class="card-title">{{$file->title}} </strong>  
+                          العنوان :  <strong class="card-title">{{$camp->title}} </strong>  
                         <br/>
-                        الوصف  :   <strong class="card-title">{{$file->decrabction}}</strong>
+                        الوصف  :   <strong class="card-title">{{$camp->decrabction}}</strong>
                         <br/>
-                         سعر الليلة :   <strong class="card-title">{{$file->price}} +  % {{$file->plus_price}} </strong>
+                         سعر الليلة :   <strong class="card-title">{{$camp->price}} +  % {{$camp->plus_price}} </strong>
                                 <br/>
 
                    
                    
-                        <p class="card-text">{{$file->created_at->diffForHumans()}}</p>
+                        <p class="card-text">{{$camp->created_at->diffForHumans()}}</p>
 
 
                         <div >
-                        <a href="{{route('view',$file->id)}}" class ="btn btn-warning"> الحجوزات </a>
+                        <a href="{{route('view',$camp->id)}}" class ="btn btn-warning"> الحجوزات </a>
 
-                    <form action="{{route('delete',$file->id)}}" method="post"> 
+                    <form action="{{route('delete',$camp->id)}}" method="post"> 
                         @csrf
 
                         <button type="submit" class="btn btn-danger" name="del"> حذف </button>
